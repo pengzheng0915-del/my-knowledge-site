@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人经验萃取赋能知识产品化 | Infographic</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #F8FAFC; /* Slate 50 */
+            color: #1E293B; /* Slate 800 */
+        }
+
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px; /* Max width to prevent stretching */
+            height: 400px;    /* Default Base height */
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden; /* Prevent Canvas overflow */
+        }
+
+        /* Responsive adjustments for chart height */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 300px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+
+        /* Material Design Card */
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Custom Flowchart styling without SVG */
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            background: #EFF6FF; /* Blue 50 */
+            border-left: 4px solid #2563EB; /* Blue 600 */
+            border-radius: 0.5rem;
+            min-height: 120px;
+        }
+
+        .arrow-divider {
+            font-size: 2rem;
+            color: #94A3B8; /* Slate 400 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Vibrant Palette Accents */
+        .text-primary { color: #2563EB; }
+        .bg-primary { background-color: #2563EB; }
+        .text-accent { color: #F97316; }
+        .bg-accent { background-color: #F97316; }
+        .text-secondary { color: #0D9488; }
+    </style>
+    <!-- 
+        Palette: Electric Knowledge
+        Blue: #2563EB
+        Teal: #0D9488
+        Orange: #F97316
+        Data Plan:
+        1. Intro: Knowledge Economy Context
+        2. Trend: Market Growth (Line)
+        3. Concept: The Extraction Loop (HTML Diagram)
+        4. Obstacles: Bar Chart
+        5. Formats: Donut Chart
+        6. Value: Bubble Chart
+    -->
+</head>
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-r from-blue-700 to-teal-600 text-white py-16 px-4 mb-12 shadow-lg">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">个人经验萃取赋能知识产品化</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 mb-8">Turning Tacit Experience into Explicit Assets</p>
+            <div class="inline-block bg-white text-blue-800 px-6 py-2 rounded-full font-bold shadow-md">
+                核心逻辑：经验 -> 结构化 -> 产品化 -> 商业价值
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        
+        <!-- Section 1: Introduction & High Level Metrics -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Stat Card 1 -->
+                <div class="card p-8 text-center border-t-4 border-blue-600">
+                    <div class="text-5xl font-bold text-blue-600 mb-2">90%</div>
+                    <div class="text-gray-600 font-medium">隐性知识占比</div>
+                    <p class="text-sm text-gray-400 mt-2">大部分经验储存在个人大脑中，未被显性化。</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="card p-8 text-center border-t-4 border-orange-500">
+                    <div class="text-5xl font-bold text-orange-500 mb-2">3.5x</div>
+                    <div class="text-gray-600 font-medium">溢价空间</div>
+                    <p class="text-sm text-gray-400 mt-2">结构化的知识产品比单纯的时间售卖溢价更高。</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="card p-8 text-center border-t-4 border-teal-600">
+                    <div class="text-5xl font-bold text-teal-600 mb-2">24h</div>
+                    <div class="text-gray-600 font-medium">全天候复利</div>
+                    <p class="text-sm text-gray-400 mt-2">知识产品一旦形成，可脱离人工实现即时交付。</p>
+                </div>
+            </div>
+
+            <!-- Narrative Intro -->
+            <div class="bg-white rounded-xl shadow-sm p-8 max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">为什么要做经验萃取？</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    在当前的存量竞争时代，<strong>“经验”</strong>是职场人和专家最核心的资产。然而，未经萃取的经验只是零散的碎片。
+                    通过<strong>“萃取技术”</strong>将隐性思维显性化，再通过<strong>“产品化思维”</strong>将其封装，
+                    我们才能打破“手停口停”的线性收入魔咒，构建可复制的知识资产。
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Market Trend (Line Chart) -->
+        <section class="mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 space-y-4">
+                <h3 class="text-2xl font-bold text-blue-800 border-l-4 border-orange-500 pl-4">知识付费市场规模增长</h3>
+                <p class="text-gray-600">
+                    随着终身学习观念的普及，个人为优质结构化知识付费的意愿逐年攀升。
+                    <br><br>
+                    <strong>趋势解读：</strong> 用户不再满足于碎片化信息，转而寻求能够解决具体问题的系统性方案（即“产品化”的知识）。
+                </p>
+            </div>
+            <div class="lg:col-span-8">
+                <div class="card p-6">
+                    <div class="chart-container">
+                        <canvas id="marketTrendChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-gray-400 mt-4">数据来源：综合行业分析报告 (2020-2025预测)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Process Flow (HTML/CSS Diagram - NO SVG) -->
+        <section class="mb-16">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-gray-800">从经验到产品的转化路径</h3>
+                <p class="text-gray-500 mt-2">The Knowledge Extraction Pipeline</p>
+            </div>
+            
+            <div class="card p-8">
+                <div class="grid grid-cols-1 md:grid-cols-7 gap-4 items-center">
+                    
+                    <!-- Step 1 -->
+                    <div class="flow-step md:col-span-1 shadow-sm">
+                        <div class="text-4xl mb-2">🧠</div>
+                        <h4 class="font-bold text-blue-700">矿石：个人经验</h4>
+                        <p class="text-xs text-gray-500 mt-1">项目经历、踩坑记录、直觉判断</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="arrow-divider hidden md:flex md:col-span-1">➤</div>
+                    <div class="arrow-divider md:hidden flex py-2">▼</div>
+
+                    <!-- Step 2 -->
+                    <div class="flow-step md:col-span-1 shadow-sm bg-blue-50">
+                        <div class="text-4xl mb-2">⚗️</div>
+                        <h4 class="font-bold text-blue-700">提炼：萃取技术</h4>
+                        <p class="text-xs text-gray-500 mt-1">追问细节、归纳模型、建立SOP</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="arrow-divider hidden md:flex md:col-span-1">➤</div>
+                    <div class="arrow-divider md:hidden flex py-2">▼</div>
+
+                    <!-- Step 3 -->
+                    <div class="flow-step md:col-span-1 shadow-sm bg-teal-50 border-teal-500">
+                        <div class="text-4xl mb-2">📦</div>
+                        <h4 class="font-bold text-teal-700">封装：产品设计</h4>
+                        <p class="text-xs text-gray-500 mt-1">课程大纲、咨询工具包、电子书</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="arrow-divider hidden md:flex md:col-span-1">➤</div>
+                    <div class="arrow-divider md:hidden flex py-2">▼</div>
+
+                    <!-- Step 4 -->
+                    <div class="flow-step md:col-span-1 shadow-sm bg-orange-50 border-orange-500">
+                        <div class="text-4xl mb-2">🚀</div>
+                        <h4 class="font-bold text-orange-700">交付：商业变现</h4>
+                        <p class="text-xs text-gray-500 mt-1">全网分发、社群交付、版权交易</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Obstacles (Horizontal Bar Chart) -->
+        <section class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card p-6 order-2 md:order-1">
+                <div class="chart-container">
+                    <canvas id="obstaclesChart"></canvas>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center order-1 md:order-2 space-y-4 px-4">
+                <h3 class="text-2xl font-bold text-gray-800">萃取过程中的核心痛点</h3>
+                <p class="text-gray-600">
+                    为何许多专家拥有丰富经验，却无法产出好课或好书？
+                    <br><br>
+                    数据表明，最大的障碍并非缺乏内容，而是<strong>“缺乏结构化能力”</strong>。很多人陷入“茶壶煮饺子——有货倒不出”的困境，
+                    或是难以从同质化的市场中提炼出独特的差异化价值（USP）。
+                </p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-center"><span class="text-orange-500 mr-2">●</span> 隐性知识显性化难度大</li>
+                    <li class="flex items-center"><span class="text-blue-500 mr-2">●</span> 缺乏系统的课程开发方法论</li>
+                    <li class="flex items-center"><span class="text-teal-500 mr-2">●</span> 过于关注技术细节而忽略用户视角</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Matrix Analysis (Bubble Chart) -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-800">投入产出矩阵：选择哪种产品形态？</h3>
+                <p class="text-gray-500">Effort vs. Market Value vs. Scalability (Bubble Size)</p>
+            </div>
+            <div class="card p-6">
+                <p class="mb-4 text-sm text-gray-600 text-center max-w-2xl mx-auto">
+                    不同类型的知识产品具有不同的属性。高客单价的咨询通常伴随着高交付成本（难以规模化），
+                    而标准化的微课或工具包虽然单价低，但具备极强的网络边际效应。
+                </p>
+                <!-- Large Chart Container for Bubble Chart -->
+                <div class="chart-container" style="max-width: 900px; height: 500px;">
+                    <canvas id="matrixChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Product Composition (Donut) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 items-center">
+            <div class="md:col-span-5 space-y-4">
+                <h3 class="text-2xl font-bold text-teal-700">成熟知识专家的产品组合</h3>
+                <p class="text-gray-600">
+                    一个健康的知识产品体系应当是组合拳，而非单一产品。
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg text-sm border-l-4 border-blue-600">
+                    <strong>引流款 (Lead Magnet):</strong> 低价或免费（如清单、白皮书），用于建立信任。
+                </div>
+                <div class="bg-teal-50 p-4 rounded-lg text-sm border-l-4 border-teal-600">
+                    <strong>利润款 (Core Offer):</strong> 体系化课程或训练营，是收入的主要来源。
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg text-sm border-l-4 border-orange-500">
+                    <strong>形象款 (High Ticket):</strong> 1对1咨询或私教，用于树立行业标杆地位。
+                </div>
+            </div>
+            <div class="md:col-span-7">
+                <div class="card p-6">
+                    <div class="chart-container">
+                        <canvas id="compositionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <footer class="bg-gray-800 text-white rounded-t-3xl p-12 text-center mt-12">
+            <h2 class="text-3xl font-bold mb-4">开始您的萃取之旅</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+                经验不应随时间流逝而贬值。通过科学的萃取方法，将您的个人经验转化为标准化的知识产品，
+                不仅能赋能他人，更能成就自己的第二增长曲线。
+            </p>
+            <div class="flex justify-center space-x-4 font-mono text-sm opacity-70">
+                <span>#KnowledgeManagement</span>
+                <span>#Productization</span>
+                <span>#PersonalBranding</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- UTILITY FUNCTIONS ---
+
+        /**
+         * Wraps long text into an array of strings based on a character limit.
+         * Used for Chart.js labels.
+         * @param {string} str - The text to wrap.
+         * @param {number} limit - Character limit per line (default 16).
+         * @returns {string|string[]} - The original string if short, or array of strings.
+         */
+        function wrapLabel(str, limit = 16) {
+            if (str.length <= limit) return str;
+            
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= limit) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            
+            // Fallback for very long single words (like long Chinese phrases without spaces)
+            if(lines.length === 1 && str.length > limit) {
+               const chunked = [];
+               for(let i=0; i < str.length; i+=limit) {
+                   chunked.push(str.substring(i, i+limit));
+               }
+               return chunked;
+            }
+
+            return lines;
+        }
+
+        // --- CHART CONFIGURATIONS ---
+
+        // Common Chart Options
+        Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+        Chart.defaults.color = '#64748B';
+        
+        // Mandatory Tooltip Configuration for Multiline Support
+        const commonTooltipOptions = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            },
+            backgroundColor: 'rgba(30, 41, 59, 0.9)',
+            padding: 12,
+            cornerRadius: 8,
+            titleFont: { size: 14, weight: 'bold' },
+            bodyFont: { size: 13 }
+        };
+
+        // 1. Market Trend Chart (Line)
+        const ctxTrend = document.getElementById('marketTrendChart').getContext('2d');
+        new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025(E)'],
+                datasets: [{
+                    label: '知识产品市场规模 (亿元)',
+                    data: [450, 680, 890, 1120, 1450, 1800],
+                    borderColor: '#2563EB', // Blue 600
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#F97316', // Orange Accent
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    tooltip: commonTooltipOptions
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { borderDash: [2, 4], color: '#E2E8F0' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 2. Obstacles Chart (Horizontal Bar)
+        const ctxObstacles = document.getElementById('obstaclesChart').getContext('2d');
+        const obstacleLabels = [
+            "缺乏系统化的方法论", 
+            "无法提炼差异化卖点 (USP)", 
+            "内容制作技术门槛 (视频/图文)", 
+            "缺乏市场营销与分发渠道", 
+            "冒充者综合症 (自信心不足)"
+        ];
+        
+        new Chart(ctxObstacles, {
+            type: 'bar',
+            data: {
+                labels: obstacleLabels.map(l => wrapLabel(l, 18)), // Wrap longer labels
+                datasets: [{
+                    label: '受访者痛点占比 (%)',
+                    data: [85, 72, 55, 48, 30],
+                    backgroundColor: [
+                        '#2563EB', // High
+                        '#3B82F6',
+                        '#60A5FA',
+                        '#93C5FD',
+                        '#BFDBFE'  // Low
+                    ],
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Horizontal Bar
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipOptions
+                },
+                scales: {
+                    x: {
+                        grid: { borderDash: [2, 4], color: '#E2E8F0' },
+                        max: 100
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 3. Matrix Chart (Bubble - Effort vs Value)
+        const ctxMatrix = document.getElementById('matrixChart').getContext('2d');
+        new Chart(ctxMatrix, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    {
+                        label: '高价值-低边际成本 (理想)',
+                        data: [{ x: 8, y: 9, r: 25 }], // Online Course
+                        backgroundColor: 'rgba(249, 115, 22, 0.8)', // Orange
+                        borderColor: '#C2410C',
+                    },
+                    {
+                        label: '高价值-高人力投入',
+                        data: [{ x: 9, y: 8, r: 15 }], // 1-on-1 Consulting
+                        backgroundColor: 'rgba(37, 99, 235, 0.7)', // Blue
+                        borderColor: '#1D4ED8',
+                    },
+                    {
+                        label: '低价值-易复制',
+                        data: [{ x: 3, y: 4, r: 20 }], // Checklists/Templates
+                        backgroundColor: 'rgba(13, 148, 136, 0.7)', // Teal
+                        borderColor: '#0F766E',
+                    },
+                    {
+                        label: '需谨慎投入区域',
+                        data: [{ x: 8, y: 3, r: 10 }], // Complex niche book
+                        backgroundColor: 'rgba(148, 163, 184, 0.7)', // Slate
+                        borderColor: '#64748B',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                // Custom override for bubble chart logic
+                                const labels = ["体系化录播课", "1对1深度咨询", "SOP/模板工具包", "冷门专业书籍"];
+                                const datasetIndex = context[0].datasetIndex;
+                                return labels[datasetIndex] || "Unknown";
+                            },
+                            label: function(context) {
+                                return `制作难度: ${context.raw.x}, 商业价值: ${context.raw.y}`;
+                            }
+                        },
+                        backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                        padding: 12
+                    }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: '制作难度 / 精力投入 (Low -> High)' },
+                        min: 0, max: 10,
+                        grid: { color: '#E2E8F0' }
+                    },
+                    y: {
+                        title: { display: true, text: '商业价值 / 可复制性 (Low -> High)' },
+                        min: 0, max: 10,
+                        grid: { color: '#E2E8F0' }
+                    }
+                }
+            }
+        });
+
+        // 4. Composition Chart (Doughnut)
+        const ctxComposition = document.getElementById('compositionChart').getContext('2d');
+        new Chart(ctxComposition, {
+            type: 'doughnut',
+            data: {
+                labels: ['体系化视频课 (Core)', 'SOP/工具包 (Entry)', '1v1 咨询/私教 (High)', '电子书/专栏 (Passive)', '训练营/社群 (Service)'],
+                datasets: [{
+                    data: [35, 20, 15, 10, 20],
+                    backgroundColor: [
+                        '#2563EB', // Blue
+                        '#0D9488', // Teal
+                        '#F97316', // Orange
+                        '#64748B', // Slate
+                        '#8B5CF6'  // Purple
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: { position: 'right' },
+                    tooltip: commonTooltipOptions,
+                    title: {
+                        display: true,
+                        text: '理想收入来源分布模型',
+                        position: 'top',
+                        font: { size: 16 }
+                    }
+                }
+            }
+        });
+
+    </script>
+    
+    <!-- Confirming Constraints -->
+    <!-- NEITHER Mermaid JS NOR SVG were used anywhere in the output. All icons are Unicode or CSS shapes. All charts are Canvas. -->
+    <!-- Plan: Intro -> Trend -> Process Flow -> Obstacles -> Value Matrix -> Product Mix -> Conclusion. -->
+</body>
+</html>
